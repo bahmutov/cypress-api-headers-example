@@ -1,6 +1,25 @@
 const fastify = require('fastify')({ logger: true })
-
 const PORT = process.env.PORT || 4321
+
+// print all X-... request headers
+fastify.addHook('preHandler', (request, reply, done) => {
+  Object.keys(request.headers).forEach((key) => {
+    if (key.startsWith('x')) {
+      console.log(
+        '🎩 %s: %s %s %s',
+        key,
+        request.headers[key],
+        request.method,
+        request.url,
+      )
+    }
+  })
+  done()
+})
+
+fastify.get('/', () => {
+  return { ok: true }
+})
 
 // Run the server!
 const start = async () => {
