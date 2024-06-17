@@ -1,5 +1,5 @@
 const path = require('path')
-const fastify = require('fastify')({ logger: true })
+const fastify = require('fastify')({ logger: false })
 const PORT = process.env.PORT || 4321
 
 const publicFolder = path.join(__dirname, 'public')
