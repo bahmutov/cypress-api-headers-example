@@ -1,24 +1,38 @@
+const path = require('path')
 const fastify = require('fastify')({ logger: true })
 const PORT = process.env.PORT || 4321
 
+const publicFolder = path.join(__dirname, 'public')
+
+const startsWithX = (key) => key.toLowerCase().startsWith('x')
+
 // print all X-... request headers
 fastify.addHook('preHandler', (request, reply, done) => {
-  Object.keys(request.headers).forEach((key) => {
-    if (key.startsWith('x')) {
-      console.log(
-        '🎩 %s: %s %s %s',
-        key,
-        request.headers[key],
-        request.method,
-        request.url,
-      )
-    }
-  })
+  const hasXheaders = Object.keys(request.headers).some(
+    startsWithX,
+  )
+  if (hasXheaders) {
+    console.log('🎩 %s %s:', request.method, request.url)
+  } else {
+    done()
+    return
+  }
+
+  Object.keys(request.headers)
+    .filter(startsWithX)
+    .forEach((key) => {
+      console.log('\t%s: %s', key, request.headers[key])
+    })
   done()
 })
 
 fastify.get('/', () => {
   return { ok: true }
+})
+
+// all other default static HTML files
+fastify.register(require('@fastify/static'), {
+  root: publicFolder,
 })
 
 // Run the server!

@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Homepage</title>
+  </head>
+  <body>
+    <h1>Homepage</h1>
+    <p>Welcome to the homepage!</p>
+    <button id="clickme">Click me</button>
+    <script>
+      document
+        .getElementById('clickme')
+        .addEventListener('click', function () {
+          fetch('/')
+        })
+    </script>
+  </body>
+</html>

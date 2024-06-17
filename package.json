@@ -13,6 +13,7 @@
   "author": "Gleb Bahmutov",
   "license": "ISC",
   "dependencies": {
+    "@fastify/static": "^7.0.4",
     "fastify": "^4.28.0"
   },
   "devDependencies": {
