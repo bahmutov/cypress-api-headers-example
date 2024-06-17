@@ -4,7 +4,8 @@ const PORT = process.env.PORT || 4321
 
 const publicFolder = path.join(__dirname, 'public')
 
-const startsWithX = (key) => key.toLowerCase().startsWith('x')
+// all request headers are lowercase
+const startsWithX = (key) => key.startsWith('x')
 
 // print all X-... request headers
 fastify.addHook('preHandler', (request, reply, done) => {

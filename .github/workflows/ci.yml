@@ -18,4 +18,4 @@ jobs:
           CYPRESS_runId: ${{ github.run_id }}
           CYPRESS_runNumber: ${{ github.run_number }}
           CYPRESS_runAttempt: ${{ github.run_attempt }}
-          CYPRESS_jobId: ${{ github.job }}
+          CYPRESS_jobName: ${{ github.job }}

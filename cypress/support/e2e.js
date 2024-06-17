@@ -22,8 +22,8 @@ beforeEach(() => {
     if (Cypress.env('runAttempt')) {
       req.headers['X-Run-Attempt'] = Cypress.env('runAttempt')
     }
-    if (Cypress.env('jobId')) {
-      req.headers['X-Job-Id'] = Cypress.env('jobId')
+    if (Cypress.env('jobName')) {
+      req.headers['X-Job-Name'] = Cypress.env('jobName')
     }
   })
 })
