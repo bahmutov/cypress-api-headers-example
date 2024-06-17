@@ -17,6 +17,7 @@
     "fastify": "^4.28.0"
   },
   "devDependencies": {
+    "@bahmutov/cy-grep": "^1.10.0",
     "cypress": "^13.11.0",
     "prettier": "^3.3.2",
     "start-server-and-test": "^2.0.4"
