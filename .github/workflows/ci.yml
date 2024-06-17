@@ -12,3 +12,10 @@ jobs:
         uses: cypress-io/github-action@v6
         with:
           start: npm start
+        # pass CI run information via Cypress_ variables
+        # to make it readily available in Cypress specs and support files
+        env:
+          CYPRESS_runId: ${{ github.run_id }}
+          CYPRESS_runNumber: ${{ github.run_number }}
+          CYPRESS_runAttempt: ${{ github.run_attempt }}
+          CYPRESS_jobId: ${{ github.job }}

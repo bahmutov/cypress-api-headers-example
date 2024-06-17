@@ -13,5 +13,17 @@ beforeEach(() => {
     if (testRailId) {
       req.headers['X-Test-Rail-Id'] = testRailId
     }
+    if (Cypress.env('runId')) {
+      req.headers['X-Run-Id'] = Cypress.env('runId')
+    }
+    if (Cypress.env('runNumber')) {
+      req.headers['X-Run-Number'] = Cypress.env('runNumber')
+    }
+    if (Cypress.env('runAttempt')) {
+      req.headers['X-Run-Attempt'] = Cypress.env('runAttempt')
+    }
+    if (Cypress.env('jobId')) {
+      req.headers['X-Job-Id'] = Cypress.env('jobId')
+    }
   })
 })
