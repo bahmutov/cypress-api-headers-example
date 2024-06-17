@@ -1,0 +1,14 @@
+name: ci
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Print GitHub CI variables
+        run: npx @bahmutov/print-env GITHUB
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm start
