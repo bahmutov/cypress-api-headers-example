@@ -1,0 +1,21 @@
+{
+  "name": "cypress-api-headers-example",
+  "version": "1.0.0",
+  "description": "Set custom API request headers from Cypress tests",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Gleb Bahmutov",
+  "license": "ISC",
+  "dependencies": {
+    "fastify": "^4.28.0"
+  },
+  "devDependencies": {
+    "cypress": "^13.11.0",
+    "prettier": "^3.3.2",
+    "start-server-and-test": "^2.0.4"
+  }
+}
