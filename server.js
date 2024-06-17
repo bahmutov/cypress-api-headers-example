@@ -21,7 +21,7 @@ fastify.addHook('preHandler', (request, reply, done) => {
   Object.keys(request.headers)
     .filter(startsWithX)
     .forEach((key) => {
-      console.log('\t%s: %s', key, request.headers[key])
+      console.log('\t%s:\t%s', key, request.headers[key])
     })
   done()
 })
